@@ -1,6 +1,8 @@
-create table if not exists users (
-	id int not null auto_increment primary key,
-    email varchar(255) not null unique,
-    name varchar(255),
-    country enum('US', 'CO', 'TN') 	default 'US' not null
+-- creates a table users
+
+CREATE TABLE IF NOT EXISTS users (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    name VARCHAR(255),
+    country ENUM('US', 'CO', 'TN') DEFAULT 'US' NOT NULL
 );
