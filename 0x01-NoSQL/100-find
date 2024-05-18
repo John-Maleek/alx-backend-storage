@@ -1,0 +1,15 @@
+// script that lists all documents with name
+// starting by Holberton in the collection school
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <database_name>"
+    exit 1
+fi
+
+DB_NAME="$1"
+
+# Run the mongo shell command
+mongo --quiet --eval "
+    db = db.getSiblingDB('$DB_NAME');
+    db.school.find({ name: { \$regex: '^Holberton' } }).forEach(printjson);
+"
